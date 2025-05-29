@@ -1,2 +1,5 @@
 const a = 20;
-module.exports = a;
+
+const add = () => console.log(10 + 3);
+
+module.exports = { a, add };
