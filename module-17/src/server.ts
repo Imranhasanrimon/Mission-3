@@ -5,7 +5,7 @@ const PORT = 5000;
 
 async function main() {
     try {
-        await mongoose.connect("mongodb+srv://common:common@cluster0.7hbnv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
+        await mongoose.connect("mongodb+srv://common:common@cluster0.7hbnv.mongodb.net/Advanced-Note-App?retryWrites=true&w=majority&appName=Cluster0");
         console.log("DB is connected");
 
         app.listen(PORT, () => {
