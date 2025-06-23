@@ -1,9 +1,11 @@
 import express, { Application, Request, Response } from 'express';
 import { noteRoutes } from './app/controllers/notes.controller';
+import { userRoutes } from './app/controllers/users.controller';
 const app: Application = express();
 
 app.use(express.json())
 app.use("/notes", noteRoutes)
+app.use("/users", userRoutes)
 
 
 
