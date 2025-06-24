@@ -5,7 +5,8 @@ const userSchema = new Schema<User>({
     firstName: {
         type: String,
         required: true,
-        trim: true
+        trim: true,
+        minlength: 4
     },
     lastName: {
         type: String,
@@ -15,7 +16,8 @@ const userSchema = new Schema<User>({
     email: {
         type: String,
         required: true,
-        trim: true
+        trim: true,
+        unique: [true, "Email unique dite hobe"]
     },
     password: {
         type: String,
