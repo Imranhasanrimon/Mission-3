@@ -50,3 +50,4 @@ userSchema.static("hashPassword", async function (plainPassword: string) {
 
 const User = model<User, userStaticMethods>("User", userSchema)
 export default User;
+//assignment 2 is still undone
