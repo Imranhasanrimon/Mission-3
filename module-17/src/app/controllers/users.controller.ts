@@ -20,8 +20,8 @@ userRoutes.post("/create-user", async (req: Request, res: Response) => {
         // body.password = password;
 
         // const user = new User(body)
-        const password = await User.hashPassword(body.password);
-        body.password = password
+        // const password = await User.hashPassword(body.password);
+        // body.password = password
         const user = await User.create(body);
 
         // await user.save()

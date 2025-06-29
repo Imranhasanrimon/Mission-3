@@ -48,6 +48,11 @@ userSchema.static("hashPassword", async function (plainPassword: string) {
     return password
 })
 
+userSchema.pre("save", async function () {
+    console.log("inside presaved hook", this);
+    this.password = await bcrypt.hash(this.password, 10);
+})
+
 const User = model<User, userStaticMethods>("User", userSchema)
 export default User;
 //assignment 2 is still undone
