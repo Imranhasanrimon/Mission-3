@@ -1,4 +1,5 @@
 import { model, Schema } from "mongoose";
+import { string } from "zod";
 
 const noteSchema = new Schema({
     title: { type: String, default: "This is Default" },
@@ -8,7 +9,8 @@ const noteSchema = new Schema({
         enum: ["personal", "work", "study", "other"],
         default: "personal"
     },
-    pinned: { type: Boolean, default: false }
+    pinned: { type: Boolean, default: false },
+    user: { type: String, require }
 },
     {
         versionKey: false,
