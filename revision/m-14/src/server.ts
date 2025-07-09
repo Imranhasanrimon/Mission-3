@@ -9,3 +9,5 @@ app.get("/", (req: Request, res: Response) => {
 app.listen(3000, () => {
     console.log("server is running");
 })
+
+//now I'm focused on module 15. but it is entirely in nosql booster software
