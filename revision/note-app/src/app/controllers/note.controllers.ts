@@ -1,13 +1,15 @@
 import express, { Request, Response } from "express";
 import { Note } from "../models/note.models";
 import z from "zod";
+
 export const noteRoutes = express.Router()
 
 const CreateNoteZodSchema = z.object({
     title: z.string(),
     content: z.string(),
     createdAt: z.string(),
-    pinned: z.boolean()
+    pinned: z.boolean(),
+    password: z.string()
 })
 
 noteRoutes.post("/create-note", async (req: Request, res: Response) => {
@@ -18,7 +20,9 @@ noteRoutes.post("/create-note", async (req: Request, res: Response) => {
     // myNote.save();
 
     const body = await CreateNoteZodSchema.parseAsync(req.body);
-    const note = await Note.create(body)
+    const note = new Note(body)
+    const password = await note.hashPassword(body.password)
+    note.password = password;
 
     res.send({
         message: "note created",
